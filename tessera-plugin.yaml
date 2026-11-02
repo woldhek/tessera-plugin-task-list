@@ -1,0 +1,37 @@
+# The manifest: who made the plugin, what it may do, and what the Tessera app shows. It holds no code and no words:
+# every name, label and hint below is a key into translations/<language>.json, part "app".
+# Every field is explained in docs/MANIFEST.md.
+id: ha_task_list
+version: 0.2.1
+# 0.12: tap_point() on the tile and the card, a card's on_tap, tessera::action with a JSON object.
+api: "0.12"
+icon: format-list-bulleted
+maintainer: woldhek
+license: MIT
+stage: beta
+topics: [home, tech]
+# About what its code adds to the firmware (compared with waste_collection, 18).
+flash_kb: 24
+
+tiles:
+  - id: tasks
+    name: task_list
+    icon: format-list-bulleted
+    sizes: { min: 1x1, max: 3x4 }
+    # Eight rows at most, three labels each (the round box with its check, the name, a second line whose bottom
+    # border is the line between rows: about 330 bytes a row), a note and "3 more".
+    memory: 2900
+    domains: [todo]
+    example: tile_example
+    options:
+      - { id: show_completed, kind: toggle, label: show_completed, hint: show_completed_hint, default: false }
+
+cards:
+  - { id: list, name: card_name }
+
+permissions:
+  read_entities: [todo]
+  home_assistant_actions:
+    - todo.update_item
+  ha_commands:
+    - "call_service:todo.get_items"

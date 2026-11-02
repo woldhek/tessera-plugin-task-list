@@ -1,0 +1,37 @@
+# What tools/preview.py shows: the tile and its card with a list as Home Assistant answers todo.get_items
+# (docs/PREVIEW.md). The bench gives the same answer to every question, whatever its status filter: the tile leaves
+# the done items out itself unless show_completed is on.
+tiles:
+  - tile: tasks
+    name: Household
+    entity: todo.household
+    options: { show_completed: false }
+  - tile: tasks
+    name: With done tasks
+    entity: todo.household
+    options: { show_completed: true }
+    sizes: [2x2, 3x4]
+
+states:
+  todo.household:
+    state: "9"
+    attributes: { friendly_name: Household }
+
+commands:
+  "call_service:todo.get_items":
+    todo.household:
+      items:
+        - { uid: 6f1c2a90-0001, summary: Call the plumber, status: needs_action, due: "{now-1d}" }
+        - { uid: 6f1c2a90-0002, summary: Groceries, status: needs_action, due: "{now+0d}", description: "Milk, eggs, bread" }
+        - { uid: 6f1c2a90-0003, summary: Water the plants, status: needs_action }
+        - { uid: 6f1c2a90-0004, summary: Book the car service, status: needs_action, due: "{now+2d}" }
+        - { uid: 6f1c2a90-0005, summary: Return library books, status: needs_action }
+        - { uid: 6f1c2a90-0006, summary: Pay the energy bill, status: needs_action, due: "{now+9d}" }
+        - { uid: 6f1c2a90-0007, summary: Clean the gutters before the winter storms come, status: needs_action }
+        - { uid: 6f1c2a90-0008, summary: Birthday present for Anna, status: needs_action, due: "{now+5d}" }
+        - { uid: 6f1c2a90-0009, summary: Change the smoke alarm batteries, status: needs_action }
+        - { uid: 6f1c2a90-0010, summary: Take out the paper, status: completed }
+        - { uid: 6f1c2a90-0011, summary: Fix the bike light, status: completed }
+
+cards:
+  - { card: list, entity: todo.household }
