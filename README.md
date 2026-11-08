@@ -21,7 +21,7 @@ Not tried yet on the CYD or a 10-inch screen. Tell me how it goes in an issue.
 
 ## What you need
 
-- Tessera with the firmware after 0.56.0 (0.57.0 and later): before it, a tile of a `todo` entity cannot tick tasks.
+- Tessera 0.4.91 or later (plugin API 0.18 for the popup that asks first).
 - A to-do list in Home Assistant.
 
 ## Set up
@@ -29,6 +29,6 @@ Not tried yet on the CYD or a 10-inch screen. Tell me how it goes in an issue.
 1. Add the plugin to a screen in the Tessera app.
 2. In Layout, place the **Tasks** tile from the plugin library.
 3. In the inspector, choose your to-do list as the tile's entity.
-4. Optionally, turn on **Show completed tasks**, or turn off **Tasks can be ticked off** for a list that is only to
-   read.
+4. Optionally, turn on **Show completed tasks**, turn on **Ask before ticking off** for a popup that asks first, or
+   turn off **Tasks can be ticked off** for a list that is only to read.
 5. Build and install the screen.
