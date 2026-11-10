@@ -15,7 +15,7 @@ A list shows up to about 25 to 30 tasks: what fits in one answer from Home Assis
 
 ## Screens it was tried on
 
-- Guition 4-inch (480 x 480), Tessera dev firmware: the tile, ticking tasks off and on.
+- Guition 4-inch (480 x 480): the tile and its card, ticking tasks off and on, and the popup that asks first (0.4.0).
 
 Not tried yet on the CYD or a 10-inch screen. Tell me how it goes in an issue.
 
